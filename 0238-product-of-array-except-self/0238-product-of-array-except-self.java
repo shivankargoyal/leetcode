@@ -1,53 +1,31 @@
-class Solution
-{
-    // public int value(int[] arr,int ind)
-    // {
-    //     int prod=1;
-    //     for(int i=0;i<arr.length;i++)
-    //     {
-    //         if(i!=ind)
-    //         {
-    //             prod=prod*arr[i];
-    //         }
-    //     }
-    //     return prod;
-    // }
+class Solution {
     public int[] productExceptSelf(int[] nums)
     {
-        int total=1;
-        int zerot=0;
+        int temp=1;
+        int []arr1=new int[nums.length];
+        int []arr2=new int[nums.length];
+        // arr1[0]=1;
+        // arr2[nums.length-1]=1;
         for(int i=0;i<nums.length;i++)
         {
-            if(nums[i]==0 && total==0)
-            {
-                zerot=0;
-            }
-            total=total*nums[i];
-            // System.out.println("total= "+total);
-            if(zerot==0 && total!=0)
-            {
-                // System.out.println("zerot to 1");
-                zerot++;
-            }
-            // if(nums[i]!=0 && total!=1)
-            if(nums[i]!=0)
-            {
-                zerot=zerot*nums[i];
-                // System.out.println("zerot= "+zerot);
-            }
-            
+            arr1[i]=temp;
+            temp=temp*nums[i];
+            // System.out.println(arr1[i]);
+        }
+        temp=1;
+        // System.out.println("asdhasgfdashjcvasddfjhgvsa");
+        for(int i=nums.length-1;i>=0;i--)
+        {
+            arr2[i]=temp;
+            temp=temp*nums[i];
+            // System.out.println(arr2[i]);
         }
 
-        int []arr=new int[nums.length];
+        int []result=new int[nums.length];
         for(int i=0;i<nums.length;i++)
         {
-            if(nums[i]==0)
-            {
-                arr[i]=zerot;
-                continue;
-            }
-            arr[i]=total/nums[i];
+            result[i]=arr1[i]*arr2[i];
         }
-        return arr;
+        return result;
     }
 }
