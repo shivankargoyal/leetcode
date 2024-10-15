@@ -12,22 +12,21 @@ class Solution {
     public ListNode middleNode(ListNode head)
     {
         int count=0;
-        ListNode temp=head;
-        while(temp!=null)
+        ListNode curr=head;
+        while(curr!=null)
         {
             count++;
-            temp=temp.next;
+            curr=curr.next;
         }
-        // System.out.println(count);
-        count=count/2;
-        ListNode midd=null;
-        int i=0;
-        while(i!=count)
+        int mid=count/2;
+        curr=head;
+        count=0;
+        while(count<mid)
         {
-            head=head.next;
-            i++;
+            count++;
+            curr=curr.next;
         }
-        midd=head;
-        return midd;
+        ListNode middle=curr;
+        return middle;
     }
 }
