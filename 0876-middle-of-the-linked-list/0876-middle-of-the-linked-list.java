@@ -11,22 +11,34 @@
 class Solution {
     public ListNode middleNode(ListNode head)
     {
-        int count=0;
-        ListNode curr=head;
-        while(curr!=null)
+        // int count=0;
+        // ListNode curr=head;
+        // while(curr!=null)
+        // {
+        //     count++;
+        //     curr=curr.next;
+        // }
+        // int mid=count/2;
+        // curr=head;
+        // count=0;
+        // while(count<mid)
+        // {
+        //     count++;
+        //     curr=curr.next;
+        // }
+        // ListNode middle=curr;
+        // return middle;
+        if(head==null)
         {
-            count++;
-            curr=curr.next;
+            return null;
         }
-        int mid=count/2;
-        curr=head;
-        count=0;
-        while(count<mid)
+        ListNode tost=head;
+        ListNode hare=head;
+        while(hare!=null && hare.next!=null)
         {
-            count++;
-            curr=curr.next;
+            tost=tost.next;
+            hare=hare.next.next;
         }
-        ListNode middle=curr;
-        return middle;
+        return tost;
     }
 }
