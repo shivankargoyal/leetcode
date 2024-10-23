@@ -1,12 +1,20 @@
 class Solution {
     public int fib(int n)
     {
+        int first=0;
+        int second=1;
         if(n<=1)
         {
-            return n;
+            return first;
         }
-        int last=fib(n-1);
-        int sec=fib(n-2);
-        return last+sec;
+        int sum=0;
+        for(int i=1;i<n;i++)
+        {
+            sum=first+second;
+            int temp=second;
+            second=first+second;
+            first=temp;
+        }
+        return sum;
     }
 }
