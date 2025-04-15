@@ -4,6 +4,6 @@ class Solution {
         for(int i = 0; i < s.length() - 1; i++) {
             total += Math.abs(s.charAt(i) - s.charAt(i + 1));
         }
-        return total;l;
+        return total;
     }
 }
