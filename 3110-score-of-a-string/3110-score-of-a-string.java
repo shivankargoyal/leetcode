@@ -1,13 +1,9 @@
-class Solution
-{
-    public int scoreOfString(String s)
-    {
-        int count=0;
-        for(int i=0;i<s.length()-1;i++)
-        {
-            int temp=Math.abs((int)s.charAt(i)-(int)s.charAt(i+1));
-            count+=temp;
+class Solution {
+    public int scoreOfString(String s) {
+        int total = 0;
+        for(int i = 0; i < s.length() - 1; i++) {
+            total += Math.abs(s.charAt(i) - s.charAt(i + 1));
         }
-        return count;
+        return total;l;
     }
 }
