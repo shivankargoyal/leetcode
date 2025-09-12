@@ -16,4 +16,4 @@ class Solution:
                 comb.pop()
 
         backtrack(0, 0, [])
-        return result;
+        return result
