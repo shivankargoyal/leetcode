@@ -1,19 +1,19 @@
 class Solution:
-    def checksym(self, i: int, n: int) -> int:
-        s=str(i)
-        half=n//2
-        left=sum(int(s[i]) for i in range(half))
-        right=sum(int(s[i]) for i in range(half, n))
-        if left== right:
-            return 0
-        else:
-            return 1
     def countSymmetricIntegers(self, low: int, high: int) -> int:
-        ans=0
-        for i in range(low,high+1):
-            if len(str(i)) %2==0:
-                if self.checksym(i,len(str(i)))==0:
-                    ans+=1
-                else:
-                    continue
-        return ans
+        count = 0  # \U0001f35c Mission count
+
+        for num in range(low, high + 1):
+            s = str(num)  # \U0001f50d Naruto's string transformation no jutsu
+            n = len(s)
+
+            if n % 2 != 0:
+                continue  # ☠️ Odd-digit numbers are not balanced, skip
+
+            half = n // 2
+            left = sum(int(s[i]) for i in range(half))  # ⬅️ Left chakra
+            right = sum(int(s[i]) for i in range(half, n))  # ➡️ Right chakra
+
+            if left == right:
+                count += 1  # ✅ Symmetry detected, add to mission count
+
+        return count
