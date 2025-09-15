@@ -1,19 +1,10 @@
 class Solution:
     def countSymmetricIntegers(self, low: int, high: int) -> int:
-        count = 0  # \U0001f35c Mission count
-
+        count = 0
         for num in range(low, high + 1):
-            s = str(num)  # \U0001f50d Naruto's string transformation no jutsu
-            n = len(s)
-
-            if n % 2 != 0:
-                continue  # ☠️ Odd-digit numbers are not balanced, skip
-
-            half = n // 2
-            left = sum(int(s[i]) for i in range(half))  # ⬅️ Left chakra
-            right = sum(int(s[i]) for i in range(half, n))  # ➡️ Right chakra
-
-            if left == right:
-                count += 1  # ✅ Symmetry detected, add to mission count
-
+            s = str(num)
+            if len(s) % 2 == 0:
+                mid = len(s) // 2
+                if sum(map(int, s[:mid])) == sum(map(int, s[mid:])):
+                    count += 1
         return count
